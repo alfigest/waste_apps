@@ -14,8 +14,8 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {},
         child: Image.asset(
           'assets/icon_qr.png',
-          width: 30,
-          height: 30,
+          width: 38,
+          height: 38,
         ),
         backgroundColor: primaryColor,
       );
