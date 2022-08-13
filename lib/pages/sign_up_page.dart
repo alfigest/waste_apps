@@ -1,0 +1,366 @@
+import 'package:flutter/material.dart';
+import 'package:waste_application/theme.dart';
+
+class SignUpPage extends StatefulWidget {
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  bool _secureText = true;
+
+  showHide() {
+    setState(() {
+      _secureText = !_secureText;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Widget _header() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Sign Up',
+              style: primaryTextStyle.copyWith(
+                fontSize: 24,
+                fontWeight: semiBold,
+              ),
+            ),
+            SizedBox(height: 2),
+            Text(
+              'Register ',
+              style: subtitleTextStyle.copyWith(
+                fontSize: 14,
+                fontWeight: regular,
+              ),
+            ),
+            SizedBox(height: 60),
+          ],
+        ),
+      );
+    }
+
+    Widget _username() {
+      return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'User Name',
+              style: text_barStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+            ),
+            SizedBox(height: 12),
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: bgColor8,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                      color: text_bar,
+                      offset: Offset(0, 1),
+                      blurRadius: 4,
+                      spreadRadius: 0),
+                ],
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/email_icon.png',
+                      width: 23,
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Email Address',
+                          hintStyle: subtitleTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
+      );
+    }
+
+    Widget _phonenumber() {
+      return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Phone Number',
+              style: text_barStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+            ),
+            SizedBox(height: 12),
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: bgColor8,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                      color: text_bar,
+                      offset: Offset(0, 1),
+                      blurRadius: 4,
+                      spreadRadius: 0),
+                ],
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/email_icon.png',
+                      width: 23,
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Email Address',
+                          hintStyle: subtitleTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
+      );
+    }
+
+    Widget _emailForm() {
+      return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Email Address',
+              style: text_barStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+            ),
+            SizedBox(height: 12),
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: bgColor8,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                      color: text_bar,
+                      offset: Offset(0, 1),
+                      blurRadius: 4,
+                      spreadRadius: 0),
+                ],
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/email_icon.png',
+                      width: 23,
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Email Address',
+                          hintStyle: subtitleTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
+      );
+    }
+
+    Widget _password() {
+      return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Password',
+              style: text_barStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+            ),
+            SizedBox(height: 12),
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: bgColor8,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                      color: text_bar,
+                      offset: Offset(0, 1),
+                      blurRadius: 4,
+                      spreadRadius: 0),
+                ],
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/password_icon.png',
+                      width: 23,
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        //controller: _emailController,
+                        controller: passwordController,
+                        obscureText: _secureText,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: showHide,
+                            icon: _secureText
+                                ? Icon(
+                                    Icons.visibility_off,
+                                    size: 23,
+                                  ) // icon
+                                : Icon(
+                                    Icons.visibility,
+                                    size: 23,
+                                  ),
+                          ),
+                          border: InputBorder.none,
+                          hintText: 'Your Password',
+                          hintStyle: subtitleTextStyle.copyWith(
+                            fontSize: 14,
+                            fontWeight: regular,
+                          ),
+                        ),
+                        style: text_barStyle.copyWith(
+                          fontSize: 14,
+                          fontWeight: regular,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
+      );
+    }
+
+    Widget _button() {
+      return Container(
+        height: 60,
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 30),
+        child: TextButton(
+          //onPressed: signInFunc,
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          child: Text(
+            'Sign Up',
+            style: button_TextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: bold,
+            ),
+          ),
+        ),
+      );
+    }
+
+    Widget _footer() {
+      return Container(
+        margin: EdgeInsets.only(bottom: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Already have an account? ',
+              style: subtitleTextStyle.copyWith(
+                fontSize: 12,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/sign-in');
+              },
+              child: Text(
+                'Sign In',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 12,
+                  fontWeight: medium,
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      backgroundColor: bgColor8,
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _header(),
+              _username(),
+              _phonenumber(),
+              _emailForm(),
+              _password(),
+              _button(),
+              Spacer(),
+              _footer(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
